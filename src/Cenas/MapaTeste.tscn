@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Componentes/Wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Componentes/Plataforma.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Jogador/Jogador.tscn" type="PackedScene" id=3]
+
+[node name="TopDown" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 25.52, 14.8923 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Paredes" type="Node2D" parent="."]
+
+[node name="Wall" parent="Paredes" instance=ExtResource( 1 )]
+position = Vector2( 504, 585 )
+scale = Vector2( 2.68, 1 )
+
+[node name="Wall2" parent="Paredes" instance=ExtResource( 1 )]
+position = Vector2( 504, 13 )
+scale = Vector2( 2.68, 1 )
+
+[node name="Wall3" parent="Paredes" instance=ExtResource( 1 )]
+position = Vector2( 10, 298 )
+rotation = 1.57079
+scale = Vector2( 1.44, 1 )
+
+[node name="Wall4" parent="Paredes" instance=ExtResource( 1 )]
+position = Vector2( 1011, 302 )
+rotation = 1.57079
+scale = Vector2( 1.44, 1 )
+
+[node name="Plataformas" type="Node2D" parent="."]
+
+[node name="Plataforma" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 207, 485 )
+
+[node name="Plataforma2" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 279, 503 )
+
+[node name="Plataforma3" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 86, 456 )
+
+[node name="Plataforma4" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 375, 474 )
+
+[node name="Plataforma5" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 463, 507 )
+
+[node name="Plataforma6" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 549, 507 )
+
+[node name="Plataforma7" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 627, 521 )
+
+[node name="Plataforma8" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 692, 511 )
+
+[node name="Plataforma9" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 760, 530 )
+
+[node name="Plataforma10" parent="Plataformas" instance=ExtResource( 2 )]
+position = Vector2( 861, 470 )
+
+[node name="Jogador" parent="." instance=ExtResource( 3 )]
+position = Vector2( 94, 393 )
