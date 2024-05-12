@@ -1,0 +1,189 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/Controles2D/Testes/OpcoesPulo.gd" type="Script" id=1]
+
+[node name="OpcoesPulo" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -245.0
+margin_top = 250.0
+margin_right = -205.0
+margin_bottom = 290.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -68.0
+margin_top = 3.0
+margin_right = -68.0
+margin_bottom = -7.0
+rect_scale = Vector2( 7.10566, 5.22202 )
+color = Color( 1, 1, 1, 0.176471 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+margin_left = -59.0
+margin_top = 9.0
+margin_right = 139.0
+margin_bottom = 71.0
+rect_pivot_offset = Vector2( -205, 58 )
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_right = 233.0
+margin_bottom = 16.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer8"]
+margin_top = 1.0
+margin_right = 32.0
+margin_bottom = 15.0
+text = "Pulo:"
+
+[node name="Pulo" type="HSlider" parent="Control/VBoxContainer/HBoxContainer8"]
+margin_left = 36.0
+margin_right = 156.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 16 )
+focus_mode = 0
+min_value = 500.0
+max_value = 1500.0
+step = 10.0
+value = 900.0
+
+[node name="LabelPulo" type="Label" parent="Control/VBoxContainer/HBoxContainer8"]
+margin_left = 160.0
+margin_top = 1.0
+margin_right = 160.0
+margin_bottom = 15.0
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 20.0
+margin_right = 233.0
+margin_bottom = 60.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer11"]
+margin_top = 13.0
+margin_right = 86.0
+margin_bottom = 27.0
+text = "Pulo Variável:"
+
+[node name="PuloVariavel" type="CheckButton" parent="Control/VBoxContainer/HBoxContainer11"]
+margin_left = 90.0
+margin_right = 166.0
+margin_bottom = 40.0
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 64.0
+margin_right = 233.0
+margin_bottom = 80.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer9"]
+margin_top = 1.0
+margin_right = 83.0
+margin_bottom = 15.0
+text = "Mult. Queda:"
+
+[node name="MultQueda" type="HSlider" parent="Control/VBoxContainer/HBoxContainer9"]
+margin_left = 87.0
+margin_right = 207.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 16 )
+focus_mode = 0
+max_value = 2.0
+step = 0.1
+value = 1.1
+
+[node name="LabelMultQueda" type="Label" parent="Control/VBoxContainer/HBoxContainer9"]
+margin_left = 211.0
+margin_top = 1.0
+margin_right = 211.0
+margin_bottom = 15.0
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 84.0
+margin_right = 233.0
+margin_bottom = 100.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer10"]
+margin_top = 1.0
+margin_right = 105.0
+margin_bottom = 15.0
+text = "Mult. Gravidade:"
+
+[node name="MultGravidade" type="HSlider" parent="Control/VBoxContainer/HBoxContainer10"]
+margin_left = 109.0
+margin_right = 229.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 16 )
+focus_mode = 0
+max_value = 2.0
+step = 0.1
+value = 1.1
+
+[node name="LabelMultGravidade" type="Label" parent="Control/VBoxContainer/HBoxContainer10"]
+margin_left = 233.0
+margin_top = 1.0
+margin_right = 233.0
+margin_bottom = 15.0
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 104.0
+margin_right = 233.0
+margin_bottom = 120.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer6"]
+margin_top = 1.0
+margin_right = 96.0
+margin_bottom = 15.0
+text = "Tempo Coyote:"
+
+[node name="CoyoteTime" type="HSlider" parent="Control/VBoxContainer/HBoxContainer6"]
+margin_left = 100.0
+margin_right = 220.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 16 )
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="LabelTempoCoyote" type="Label" parent="Control/VBoxContainer/HBoxContainer6"]
+margin_left = 224.0
+margin_top = 1.0
+margin_right = 224.0
+margin_bottom = 15.0
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Control/VBoxContainer"]
+margin_top = 124.0
+margin_right = 233.0
+margin_bottom = 140.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer7"]
+margin_top = 1.0
+margin_right = 74.0
+margin_bottom = 15.0
+text = "Buffer Pulo:"
+
+[node name="BufferPulo" type="HSlider" parent="Control/VBoxContainer/HBoxContainer7"]
+margin_left = 78.0
+margin_right = 198.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 120, 16 )
+focus_mode = 0
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="LabelBufferPulo" type="Label" parent="Control/VBoxContainer/HBoxContainer7"]
+margin_left = 202.0
+margin_top = 1.0
+margin_right = 202.0
+margin_bottom = 15.0
+
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer8/Pulo" to="." method="_on_Pulo_value_changed"]
+[connection signal="toggled" from="Control/VBoxContainer/HBoxContainer11/PuloVariavel" to="." method="_on_PuloVariavel_toggled"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer9/MultQueda" to="." method="_on_MultQueda_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer10/MultGravidade" to="." method="_on_MultGravidadr_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer6/CoyoteTime" to="." method="_on_TempoCoyote_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer7/BufferPulo" to="." method="_on_BufferPulo_value_changed"]

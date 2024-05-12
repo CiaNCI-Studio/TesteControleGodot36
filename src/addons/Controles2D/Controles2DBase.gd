@@ -3,6 +3,12 @@ class_name BaseControle2D
 
 # Classe base do componente de movimentação 2D
 
+#Enum de modo de controle
+enum modo_controle {
+	autonomo,
+	gatilho	
+}
+
 #Sinais
 signal corrida_iniciada
 signal corrida_finalizada
@@ -15,9 +21,7 @@ export var controle_up = "up"
 export var controle_down = "down"
 export var controle_left = "left"
 export var controle_right = "right"
-export var controle_pulo = "jump"
 export var controle_correr = "sprint"
-export var controle_click = "click"
 
 #Propriedades de velocidade
 export var velocidade_andar = 300.0
@@ -29,7 +33,7 @@ export var desaceleracao = 50.0
 export var referencia_sprites = "sprites"
 
 #Se utiliza move_and_slide ou move_and_collide
-export(int, "Move And Slide", "Move And Collide") var tipo_movimento = 0
+export(int, "Move And Slide", "Move And Collide", "None") var tipo_movimento = 0
 
 #Váriaveis internas
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -45,8 +49,8 @@ func _ready():
 	grupo_sprites = parent.get_node(referencia_sprites)
 
 func move():
-	if(ativo):
+	if ativo:
 		if tipo_movimento == 0:
 			parent.move_and_slide(velocidade, Vector2.UP)
-		else:
+		elif tipo_movimento == 1:
 			parent.move_and_collide(velocidade)

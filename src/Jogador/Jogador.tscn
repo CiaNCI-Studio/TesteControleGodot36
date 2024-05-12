@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Jogador/Jogador.gd" type="Script" id=1]
 [ext_resource path="res://addons/Controles2D/ControleSideScrolling2D.gd" type="Script" id=2]
 [ext_resource path="res://addons/Controles2D/ControleTopDown2D.gd" type="Script" id=3]
 [ext_resource path="res://addons/Controles2D/Testes/OpcoesTopDown.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/Controles2D/Testes/OpcoesSideScrolling.tscn" type="PackedScene" id=5]
-
-[sub_resource type="CapsuleShape2D" id=1]
+[ext_resource path="res://addons/Controles2D/ControlePulo2D.gd" type="Script" id=6]
+[ext_resource path="res://addons/Controles2D/Testes/OpcoesPulo.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 0.513636 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
@@ -51,11 +51,10 @@ orbit_velocity_random = 0.0
 scale = 2.0
 scale_curve = SubResource( 3 )
 
+[sub_resource type="CapsuleShape2D" id=7]
+
 [node name="Jogador" type="KinematicBody2D"]
 script = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="sprites" type="Node2D" parent="."]
 
@@ -91,7 +90,7 @@ process_material = SubResource( 6 )
 
 [node name="ControleSideScroling2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
-velocidade_pulo = 600.0
+tratar_gravidade = false
 multiplicador_de_gravidade = 0.5
 
 [node name="OpcoesSideScrolling" parent="ControleSideScroling2D" instance=ExtResource( 5 )]
@@ -102,6 +101,12 @@ ativo = false
 
 [node name="OpcoesTopDown" parent="ControleTopDown2D" instance=ExtResource( 4 )]
 visible = false
+
+[node name="ControlePulo2D" type="Node2D" parent="."]
+script = ExtResource( 6 )
+multiplicador_de_gravidade = 0.5
+
+[node name="OpcoesPulo" parent="ControlePulo2D" instance=ExtResource( 7 )]
 
 [node name="Hud" type="CanvasLayer" parent="."]
 
@@ -132,6 +137,9 @@ focus_mode = 0
 text = "SideScrolling"
 items = [ "SideScrolling", null, false, 0, null, "TopDown", null, false, 1, null ]
 selected = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 7 )
 
 [connection signal="chao_atingido" from="ControleSideScroling2D" to="." method="_on_ControleSideScroling2D_chao_atingido"]
 [connection signal="corrida_finalizada" from="ControleSideScroling2D" to="." method="_on_ControleSideScroling2D_corrida_finalizada"]

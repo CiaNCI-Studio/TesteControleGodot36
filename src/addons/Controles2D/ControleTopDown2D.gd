@@ -1,11 +1,18 @@
 extends BaseControle2D
 class_name ControleTopDown2D
 
+#Enumerados
+enum modo_topdown{ direcional, rotacional, click }
+enum modo_rotacao{ desativada, tudo, sprite_apenas }
+
 #Modo de controle
-export(int, "Direcional", "Rotacional", "Click")  var modo_de_controle = 0
+export(modo_topdown)  var modo_de_controle = modo_topdown.direcional
+
+#Propriedades de controle
+export var controle_click = "click"
 
 #Propriedades de rotação
-export(int, "Desativada", "Tudo", "Sprite Apenas")  var rotacionar = 1
+export(modo_rotacao)  var rotacionar = modo_rotacao.tudo
 export var velocidade_rotacao = 20.0
 export var rotacao_travada_no_mouse = false
 
@@ -23,9 +30,9 @@ func _process(delta):
 		move()	
 	
 func tratar_direcao(delta):	
-	if modo_de_controle == 0:
+	if modo_de_controle == modo_topdown.direcional:
 		movimento_direcional(delta)
-	elif modo_de_controle == 1:
+	elif modo_de_controle == modo_topdown.rotacional:
 		movimento_rotacional(delta)
 	else:
 		movimento_click(delta)
@@ -74,12 +81,12 @@ func movimento_click(delta):
 			emit_signal("corrida_finalizada")
 
 func rotacionar(alvo, delta):	
-	if rotacionar == 1:
+	if rotacionar == modo_rotacao.tudo:
 		var rotacao_atual = parent.rotation
 		parent.look_at(alvo)
 		var rotacao_alvo = parent.rotation
 		parent.rotation = lerp_angle(rotacao_atual, rotacao_alvo, velocidade_rotacao * delta)
-	if rotacionar == 2 and grupo_sprites:
+	if rotacionar == modo_rotacao.sprite_apenas and grupo_sprites:
 		var rotacao_atual = grupo_sprites.rotation
 		grupo_sprites.look_at(alvo)
 		var rotacao_alvo = grupo_sprites.rotation

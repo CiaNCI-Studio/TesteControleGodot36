@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://addons/Controles2D/Controles2DBase.gd"
 }, {
 "base": "BaseControle2D",
+"class": "ControlePulo2D",
+"language": "GDScript",
+"path": "res://addons/Controles2D/ControlePulo2D.gd"
+}, {
+"base": "BaseControle2D",
 "class": "ControleSideScroling2D",
 "language": "GDScript",
 "path": "res://addons/Controles2D/ControleSideScrolling2D.gd"
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BaseControle2D": "",
+"ControlePulo2D": "",
 "ControleSideScroling2D": "",
 "ControleTopDown2D": "",
 "Jogador": ""
